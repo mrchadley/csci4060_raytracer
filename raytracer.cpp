@@ -75,7 +75,7 @@ Vec3f Raytracer::Trace(const Vec3f &origin, const Vec3f &direction,
 	}
 
 	//no intersection, return black
-	if(!sphere) return Vec3f(0);
+	if(!sphere) return Vec3f(.2f);
 
 	Vec3f surfaceColour = 0;
 	Vec3f hitPoint = origin + direction * tnear;
