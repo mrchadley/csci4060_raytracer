@@ -7,16 +7,16 @@ class Sphere
 {
 public:
 	Vec3f center;
-	float radius;
+	float radius, radiusSqr;
 	Vec3f surfaceColour;
 	Vec3f emissionColour;
 	float transparency;
 	float reflectivity;
 
-	Sphere(const Vec3f &center, const float &radius, const Vec3f &surfaceCol, const Vec3f &emissionCol = 0, const float &trans = 0, const float &refl = 0);
+	Sphere(const Vec3f &center, const float &radius, const Vec3f &surfaceCol, const float &trans = 0, const float &refl = 0, const Vec3f &emissionCol = 0);
 
 
-	bool intersect(const Vec3f &castPoint, const Vec3f &castDir, float &t0, float &t1) const;
+	bool Intersect(const Vec3f &castPoint, const Vec3f &castDir, float &t0, float &t1) const;
 
 
 	friend std::ostream &operator<<(std::ostream &os, const Sphere s);

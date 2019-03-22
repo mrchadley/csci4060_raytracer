@@ -12,11 +12,18 @@ public:
 	Vec3f(float a);
 	Vec3f(float x, float y, float z);
 
+	Vec3f &Normalize();
+	float LengthSqr();
+	float Length();
+
+	float Dot(const Vec3f &v) const;
 
 	Vec3f operator+(const Vec3f &v) const;
 	Vec3f operator-(const Vec3f &v) const;
 	Vec3f operator*(const Vec3f &v) const;
 	Vec3f operator*(const float &f) const;
+
+	Vec3f &operator+=(const Vec3f &v);
 
 	Vec3f operator-() const;
 
