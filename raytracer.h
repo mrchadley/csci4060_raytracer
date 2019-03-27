@@ -47,6 +47,7 @@ class PThreadRaytracer : public Raytracer
 public:
 	PThreadRaytracer(int width, int height);
 	void Render(const std::vector<Sphere> spheres) override;
+	void * PrimaryRayRoutine(void * arg);
 };
 
 class OpenCLRaytracer : public Raytracer
