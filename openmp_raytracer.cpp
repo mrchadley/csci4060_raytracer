@@ -2,7 +2,7 @@
 #include <omp.h>
 #include <algorithm>
 
-#define NUM_THREADS 8
+
 
 OpenMPRaytracer::OpenMPRaytracer(int width, int height)
  : Raytracer(width, height)

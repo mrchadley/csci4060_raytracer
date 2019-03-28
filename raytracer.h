@@ -1,6 +1,8 @@
 #ifndef TRACER_H
 #define TRACER_H
 
+#define NUM_THREADS 8
+
 #include <vector>
 #include "sphere.h"
 
@@ -47,7 +49,8 @@ class PThreadRaytracer : public Raytracer
 public:
 	PThreadRaytracer(int width, int height);
 	void Render(const std::vector<Sphere> spheres) override;
-	void * PrimaryRayRoutine(void * arg);
+	void PrimaryRayRoutine(int thread_num, std::vector<Sphere> spheres);
+	static void * RayWrapper(void *arg);
 };
 
 class OpenCLRaytracer : public Raytracer
