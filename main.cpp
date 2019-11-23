@@ -3,6 +3,9 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include <ctime>
+#include <chrono>
+
 #include "vec3.h"
 #include "sphere.h"
 #include "raytracer.h"
@@ -37,7 +40,7 @@ int main(int argc, char **argv)
 	else
 	{
 		std::cout << "Error: method not found: " << m << '\n' 
-				<< "Usage: raytracer method width=800 height=600\n\tmethod = [sequential | openmp | pthread | opencl]\n";
+				<< "Usage: raytracer method width height\n\tmethod = [sequential | openmp | pthread | opencl]\n";
 		exit(-1);
 	}
 
@@ -54,7 +57,15 @@ int main(int argc, char **argv)
     // light
     spheres.push_back(Sphere(Vec3f( 0.0,     20, -30),     3, Vec3f(0.00, 0.00, 0.00), 0, 0.0, Vec3f(3))); 
     
+	std::chrono::time_point<std::chrono::system_clock> start, end;
 
+	start = std::chrono::system_clock::now();
 	raytracer->Render(spheres);
+	end = std::chrono::system_clock::now();
+
+	std::chrono::duration<double> elapsed = end - start;
+
+	std::cout << elapsed.count() << "\n";
+
 	return 0;
 }

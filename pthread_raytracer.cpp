@@ -18,7 +18,6 @@ PThreadRaytracer::PThreadRaytracer(int width, int height)
 void PThreadRaytracer::Render(const std::vector<Sphere> spheres)
 {
 	Raytracer::Render(spheres);
-	printf("PThreadRaytracer::Render()\n");
 
 	
 	pthread_t threads[NUM_THREADS];// = (pthread_t *)malloc(num_pix * sizeof(pthread_t)); //will probably actually have to malloc this
@@ -89,7 +88,6 @@ void PThreadRaytracer::PrimaryRayRoutine(int thread_num, std::vector<Sphere> sph
 
 void * PThreadRaytracer::RayWrapper(void *arg)
 {
-	//printf("PThreadRaytracer::RayWrapper()\n");
 
 	struct RayData *data = (RayData *)arg;
 

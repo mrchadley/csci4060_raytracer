@@ -6,4 +6,4 @@ FLAGS = -pthread -I. -I./lodepng
 
 raytracer: $(DEPS)
 	mkdir -p output
-	$(CC) $(DEPS) $(PREFLAGS) -o output/raytracer.exe $(FLAGS)
+	$(CC) $(DEPS) $(PREFLAGS) -o output/raytracer $(FLAGS)	
