@@ -13,7 +13,6 @@ OpenMPRaytracer::OpenMPRaytracer(int width, int height)
 void OpenMPRaytracer::Render(const std::vector<Sphere> spheres)
 {
 	Raytracer::Render(spheres);
-	printf("OpenMPRaytracer::Render()\n");
 
 	omp_set_num_threads(NUM_THREADS);
 

@@ -27,8 +27,6 @@ Raytracer::Raytracer(int width, int height)
 
 void Raytracer::Render(const std::vector<Sphere> spheres)
 {
-	printf("Raytracer::Render()\n");
-
 	image = (unsigned char *)malloc(width * height * 4);
 
 	invWidth = 1 / float(width);
@@ -160,7 +158,6 @@ SequentialRaytracer::SequentialRaytracer(int width, int height)
 void SequentialRaytracer::Render(const std::vector<Sphere> spheres)
 {
 	Raytracer::Render(spheres);
-	printf("SequentialRaytracer::Render()\n");
 
 	unsigned x, y;
 	unsigned index;
@@ -202,5 +199,4 @@ OpenCLRaytracer::OpenCLRaytracer(int width, int height)
 void OpenCLRaytracer::Render(const std::vector<Sphere> spheres)
 {
 	Raytracer::Render(spheres);
-	printf("OpenCLRaytracer::Render()\n");
 }
